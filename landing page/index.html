@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeroBiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>HeroBiz</h1>
+        <button>Home</button>
+        <button>About</button>
+        <button>Serives</button>
+        <button>Portfolio</button>
+        <button>Team</button>
+        <button>Blog</button>
+        <button>Contact</button>
+        <button id="getstarted">Get Started</button>
+    </nav>
+    <header>
+        <img src="/hero-carousel-3.svg" alt="Hero SVG">
+    </header>
+    <section class="first">
+        <h1>Welcome to <span style="color: lightblue;">HeroBiz</span></h1><br>
+        <h2>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</h2><br>
+        <button id="getstarted">Get Started</button>
+        <button id="watchvideo">Watch Video</button>
+    </section>
+    <section class="container">
+        <div class="box first_box">
+            <h2>Lorem</h2>
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus vel soluta dolorem similique ratione maiores rerum corporis reprehenderit sint qui?</span>
+        </div>
+        <div class="box second_box">
+            <h2>Lorem</h2>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati velit ducimus accusamus temporibus delectus modi illo impedit, iste esse at.</span>
+        </div>
+        <div class="box third_box">
+            <h2>Lorem</h2>
+            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem ab dolorem nobis, consectetur corporis enim aliquid expedita voluptate fugiat non?</span>
+        </div>
+        <div class="box fourth_box">
+            <h2>Lorem</h2>
+            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quam, officia error magnam doloremque incidunt aut vel sequi odio accusamus?</span>
+        </div>
+    </section>
+    <section id="aboutus">
+        <h1>About Us</h1>
+        <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae illum ratione consequatur maiores quod dolore quo eius officiis amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, tempore.</span>
+        <section class="aboutuscontainer">
+            <div class="aboutusimg">
+                <img src="download.jpg" alt="">
+            </div>
+            <div class="aboutusdescription">
+                <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet consequuntur eius nihil temporibus iste architecto ducimus sapiente incidunt labore dolore!</h1>
+                <div class="buttonscontainer">
+                    <button id="first_btn">lorem</button>
+                    <button id="second_btn">lorem</button>
+                    <button id="thrid_btn">lorem</button>
+                </div>
+                <div class="aboutusdescriptionboxes">
+                    <div class="first_btndescription"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non voluptas magnam beatae accusamus reprehenderit necessitatibus inventore iste laborum eaque quas unde veritatis voluptatum pariatur impedit similique consequatur iusto, illo esse.</span></div>
+                <div class="second_btndescription"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis neque vero unde dicta nobis doloribus perferendis nostrum minima ab tenetur eaque provident iure, saepe voluptates dolor consequuntur debitis quasi?</span></div>
+                <div class="third_btndescription"><span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur fuga voluptas iure earum illo optio omnis nam cum impedit?Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, iste.</span></div>
+                </div>
+            </div>
+        </section>
+        </section>
+        <div class="block">
+            <div class="blocktwo">
+                <div class="blockdescription">
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Tenetur, mollitia hic, odit asperiores quae repellat ipsum accusamus eos accusantium ipsam vel voluptatum?<br> Assumenda laboriosam saepe molestiae sed eos, cum illo, illum alias rem magnam adipisci itaque ullam<br> Quibusdam nemo quia nam perferendis pariatur eveniet labore consectetur modi unde fugit.<br> Qui.</span>
+                </div>
+                <img src="/download2.jpg" alt="">
+            </div>
+        </div>
+        <footer>
+            <h2>HeroBiz</h2>
+        </footer>
+    <script>
+        const first_btn=document.querySelector("#first_btn");
+        const second_btn=document.querySelector("#second_btn");
+        const third_btn=document.querySelector("#thrid_btn");
+        const first_btndescription=document.querySelector(".first_btndescription");
+        const second_btndescrition=document.querySelector(".second_btndescription");
+        const third_btndescription=document.querySelector(".third_btndescription");
+        first_btn.onclick=()=>{
+            first_btndescription.classList.add("activateFirstBtn");
+            second_btndescrition.classList.remove("activateSecondBtn");
+            third_btndescription.classList.remove("activateThridBtn");
+        }
+        second_btn.onclick=()=>{
+            first_btndescription.classList.remove("activateFirstBtn");
+            second_btndescrition.classList.add("activateSecondBtn");
+            third_btndescription.classList.remove("activateThridBtn");
+        }
+        third_btn.onclick=()=>{
+            first_btndescription.classList.remove("activateFirstBtn");
+            second_btndescrition.classList.remove("activateSecondBtn");
+            third_btndescription.classList.add("activateThridBtn");
+        }
+    </script>
+</body>
+</html>
