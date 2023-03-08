@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        table{
+            padding: 10px;
+            background-color: lightgray;
+            border-radius: 20px;
+        }
+        input{
+            padding: 20px;
+            width: 82%;
+            border: 2px solid black;
+            font-size: 19px;
+        }
+        td{
+            padding: 5px;
+        }
+        button{
+            font-size: 17px;
+            font-weight: 600;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" id="result" readonly></td>
+            </tr>
+            <tr>
+                <td><button onclick="clearinput()">C</button></td>
+                <td><button onclick="solve('%')">%</button></td>
+                <td><button onclick="back()"><-</button></td>
+                <td><button onclick="solve('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="solve('00')">00</button></td>
+                <td><button onclick="solve('0')">0</button></td>
+                <td><button onclick="solve('.')">.</button></td>
+                <td><button onclick="solve('*')">x</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="solve('1')">1</button></td>
+                <td><button onclick="solve('2')">2</button></td>
+                <td><button onclick="solve('3')">3</button></td>
+                <td><button onclick="solve('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="solve('4')">4</button></td>
+                <td><button onclick="solve('5')">5</button></td>
+                <td><button onclick="solve('6')">6</button></td>
+                <td><button onclick="solve('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="solve('7')">7</button></td>
+                <td><button onclick="solve('8')">8</button></td>
+                <td><button onclick="solve('9')">9</button></td>
+                <td><button onclick="result('=')">=</button></td>
+                
+            </tr>
+        </table>
+    </div>
+    <script>
+        function solve(inputValue) {
+         var result = document.getElementById('#result');
+         result.value += inputValue;
+      }
+      function result() {
+         var x = document.getElementById('result').value;
+         var y = eval(x);
+         document.getElementById('result').value = y;
+      }
+      function clearinput() {
+         var result = document.getElementById('result');
+         result.value = ' ';
+      }
+      function back() {
+         var result = document.getElementById('result');
+         result.value = result.value.slice(0,-1);
+      }
+    </script>
+</body>
+
+</html>

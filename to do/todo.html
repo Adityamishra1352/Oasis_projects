@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 60%;
+        }
+        .container header{
+            background-color: burlywood;
+            padding: 10px;
+            margin: 0;
+            text-align: center;
+        }
+        main{
+            padding: 10px;
+            background-color: #fff;
+            border: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        main input{
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 100%;
+        }
+        main button{
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        .result{
+            background-color: antiquewhite;
+            padding: 10px;
+        }
+        .tasks{
+            list-style-type: none;
+        }
+        li{
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        li .delete_btn{
+            margin-left: auto;
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TO-DO list</h1>
+        </header>
+        <main>
+            <form>
+                <input type="text" id="inputTask" placeholder="Add new task">
+                <button id="submit">Submit</button>
+            </form>
+        </main>
+        <section class="result">
+            <ul id="tasks"></ul>
+        </section>
+    </div>
+    <script>
+        const inputTask=document.querySelector("#inputTask");
+        const submit=document.querySelector("#submit");
+        const tasks=document.querySelector("#tasks");
+        submit.onclick=(e)=>{
+            e.preventDefault();
+            if(inputTask.value!==''){
+                const li=document.createElement('li');
+                const toAddText=document.createTextNode(inputTask.value);
+                li.appendChild(toAddText);
+                const delete_btn=document.createElement('button');
+                delete_btn.classList.add('delete_btn');
+                delete_btn.innerHTML='&times;';
+                delete_btn.onclick=()=>{
+                    tasks.removeChild(li);
+                }
+                li.appendChild(delete_btn);
+                tasks.appendChild(li);
+                inputTask.value='';
+            }
+        }
+    </script>
+</body>
+</html>

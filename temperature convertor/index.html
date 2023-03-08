@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor Application</title>
+    <style>
+        main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainpage {
+            padding: 20px;
+            background-color: #fcebb6;
+            border: 2px solid #f0a830;
+            border-radius: 10px;
+            /* width: 100%; */
+        }
+        .mainpage input,
+        .mainpage select {
+            padding: 10px;
+            width: 90%;
+            background-color: #fff;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        option {
+            font-family: cursive;
+        }
+
+        .mainpage button {
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        
+        <div class="mainpage">
+            <header>
+                <h1>Temperature Convertor:</h1>
+            </header>
+            <div class="fromGroup">
+                <input type="number" placeholder="Temperature value" id="temperatureInput"><br>
+            <label for="fromUnit">From:</label><br>
+            <select id="fromUnit">
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenhite">Fahrenhite</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            </div>
+            <div class="toGroup">
+                <label for="toUnit">To: </label><br>
+            <select id="toUnit">
+                <option value="Celsius">Celcius</option>
+                <option value="Fahrenhite">Fahrenhite</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            </div>
+            <button id="convert">Convert</button>
+            <h2 id="result"></h2>
+        </div>
+    </main>
+    <script>
+        const convert_btn = document.querySelector("#convert");
+        const result=document.querySelector("#result");
+        convert_btn.onclick=()=>{
+            var temperatureInput = document.querySelector("#temperatureInput").value;
+            var fromUnit = document.querySelector("#fromUnit").value;
+            console.log(fromUnit)
+            var toUnit = document.querySelector("#toUnit").value;
+            console.log(toUnit)
+            var convertedTemp;
+            if (fromUnit === toUnit) {
+                convertedTemp = temperatureInput;
+            }
+            else if (fromUnit === 'Celsius') {
+                if (toUnit === 'Fahrenhite') {
+                    convertedTemp = temperatureInput * 9 / 5 + 32;
+                } else if (toUnit === 'Kelvin') {
+                    convertedTemp = parseFloat(temperatureInput) + 273.15;
+                }
+            }
+            else if (fromUnit === 'Fahrenhite') {
+                if (toUnit === 'Celsius') {
+                    convertedTemp = (temperatureInput - 32) * 5 / 9;
+                }
+                else if (toUnit === 'Kelvin') {
+                    convertedTemp = (temperatureInput - 32) * 5 / 9 + 273.15;
+                }
+            } else if (fromUnit === 'Kelvin') {
+                if (toUnit === 'Celsius') {
+                    convertedTemp = temperatureInput - 273.15;
+                } else if (toUnit === 'Fahrenhite') {
+                    convertedTemp = (temperatureInput - 273.15) * 9 / 5 + 32;
+                }
+            }
+            let result_tag=`<span>`+temperatureInput+` `+fromUnit+`=`+convertedTemp+` `+toUnit+`</span>`;
+            result.innerHTML=result_tag;
+        }
+        
+    </script>
+</body>
+
+</html>
